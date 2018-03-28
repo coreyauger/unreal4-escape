@@ -7302,6 +7302,7 @@ set(SOURCE_FILES
 	"${UE4_ROOT_PATH}/Engine/Plugins/Tests/ScreenshotTools/Source/ScreenshotTools/Private/ScreenshotTools.cpp"
 	"${GAME_ROOT_PATH}/Source/BuildingEscape/BuildingEscape.cpp"
 	"${GAME_ROOT_PATH}/Source/BuildingEscape/BuildingEscapeGameModeBase.cpp"
+	"${GAME_ROOT_PATH}/Source/BuildingEscape/OpenDoor.cpp"
 	"${GAME_ROOT_PATH}/Source/BuildingEscape/PositionReporter.cpp"
  )
 
@@ -16736,6 +16737,7 @@ set(HEADER_FILES
 	"${UE4_ROOT_PATH}/Engine/Plugins/Tests/ScreenshotTools/Source/ScreenshotTools/Public/ScreenshotTools.h"
 	"${GAME_ROOT_PATH}/Source/BuildingEscape/BuildingEscape.h"
 	"${GAME_ROOT_PATH}/Source/BuildingEscape/BuildingEscapeGameModeBase.h"
+	"${GAME_ROOT_PATH}/Source/BuildingEscape/OpenDoor.h"
 	"${GAME_ROOT_PATH}/Source/BuildingEscape/PositionReporter.h"
  )
 
