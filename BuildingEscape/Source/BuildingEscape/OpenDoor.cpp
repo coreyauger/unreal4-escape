@@ -18,10 +18,11 @@ UOpenDoor::UOpenDoor()
 // Called when the game starts
 void UOpenDoor::BeginPlay()
 {
-	Super::BeginPlay();
+	Super::BeginPlay(); 
 
-	// ...
-	
+	UE_LOG(LogTemp, Warning, TEXT("OpenDoor changing the angle rarg") );
+	GetOwner()->SetActorRotation(FRotator(0.0f, this->OpenAngle, 0.0f));
+	 
 }
 
 
