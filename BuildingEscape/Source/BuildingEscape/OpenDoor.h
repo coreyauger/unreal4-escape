@@ -32,7 +32,7 @@ private:
   UPROPERTY(VisibleAnywhere)
   float OpenAngle = 90.0f;
   
-  UPROPERTY(VisibleAnywhere)
+  UPROPERTY(EditAnywhere)
   ATriggerVolume* TriggerVolume;
 	
 };
