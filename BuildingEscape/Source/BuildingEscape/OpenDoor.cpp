@@ -19,12 +19,13 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay(); 
-
-	UE_LOG(LogTemp, Warning, TEXT("OpenDoor changing the angle rarg") );
-	GetOwner()->SetActorRotation(FRotator(0.0f, this->OpenAngle, 0.0f));
-	 
+	UE_LOG(LogTemp, Warning, TEXT("OpenDoor changing the angle rarg") );	 
 }
 
+void UOpenDoor::OpenDoor() const
+{
+  GetOwner()->SetActorRotation(FRotator(0.0f, this->OpenAngle, 0.0f));
+}
 
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
