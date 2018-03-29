@@ -1,0 +1,11 @@
+{
+	"files.exclude": {
+		"/home/suroot/projects/unreal4-escape/BuildingEscape/.idea": true,
+		"/home/suroot/projects/unreal4-escape/BuildingEscape/.kdev4": true,
+		"/home/suroot/projects/unreal4-escape/BuildingEscape/.vscode": true,
+		"/home/suroot/projects/unreal4-escape/BuildingEscape/Content": true,
+		"/home/suroot/projects/unreal4-escape/BuildingEscape/DerivedDataCache": true,
+		"/home/suroot/projects/unreal4-escape/BuildingEscape/Intermediate": true,
+		"/home/suroot/projects/unreal4-escape/BuildingEscape/Saved": true
+	}
+}

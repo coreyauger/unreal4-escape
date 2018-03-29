@@ -30,12 +30,11 @@ public:
 
 		
 private:
+  AActor* TriggerActor;
+
   UPROPERTY(VisibleAnywhere)
-  float OpenAngle = 90.0f;
-  
-  UPROPERTY(EditAnywhere)
-  ATriggerVolume* TriggerVolume;
+  float DoorOpenAngle = 90.0f;
 
   UPROPERTY(EditAnywhere)
-  AActor* TriggerActor;
+  ATriggerVolume* TriggerVolume;
 };
