@@ -34,9 +34,9 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	FVector PlayerLocation;
 	FRotator PlayerRotation;
 	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(PlayerLocation, PlayerRotation);
-	FVector GrabberVector = PlayerRotation.Vector() * 5.0f;
+	FVector GrabberVector = PlayerRotation.Vector() * 3.5f;
 
-	UE_LOG(LogTemp, Warning, TEXT("UGrabber: %s"), *PlayerLocation.ToString() );
-	DrawDebugLine(GetWorld(), PlayerLocation, GrabberVector, FColor::Red);
+	//UE_LOG(LogTemp, Warning, TEXT("UGrabber: %s"), *PlayerLocation.ToString() );
+	DrawDebugLine(GetWorld(), PlayerLocation, GrabberVector, FColor::Red, false, 0.0f, 0.0f, 5.0f);
 }
 
