@@ -21,6 +21,7 @@ void UOpenDoor::BeginPlay()
 	Super::BeginPlay(); 
 	UE_LOG(LogTemp, Warning, TEXT("OpenDoor meep") );	 
 	TriggerActor = GetWorld()->GetFirstPlayerController()->GetPawn();	 
+
 }
 
 void UOpenDoor::OpenDoor() const
