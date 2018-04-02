@@ -29,10 +29,11 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 
 	if(GetTotalMassOnVolume() > 12.0f){
 		UE_LOG(LogTemp, Warning, TEXT("OPEN") );	 
-		//GetOwner()->SetActorRotation(FRotator(0.f, -DoorOpenAngle, 0.0f));
+		GetOwner()->SetActorRotation(FRotator(0.f, -DoorOpenAngle, 0.0f));
 		OnOpenRequest.Broadcast();
 	}else{
-		GetOwner()->SetActorRotation(FRotator(0.f, 0.0f, 0.0f));
+		UE_LOG(LogTemp, Warning, TEXT("CLOSE") );	 
+		//GetOwner()->SetActorRotation(FRotator(0.f, 0.0f, 0.0f));
 	}	
 }
 
