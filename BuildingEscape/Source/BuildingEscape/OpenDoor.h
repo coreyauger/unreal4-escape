@@ -36,5 +36,5 @@ private:
   float DoorOpenAngle = 90.0f;
 
   UPROPERTY(EditAnywhere)
-  ATriggerVolume* TriggerVolume;
+  ATriggerVolume* TriggerVolume = nullptr;
 };

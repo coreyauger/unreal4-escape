@@ -10,9 +10,7 @@ UOpenDoor::UOpenDoor()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
-
-	
+	PrimaryComponentTick.bCanEverTick = true;	
 }
 
 
@@ -29,7 +27,8 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if(GetTotalMassOnVolume() > 5.0f){
+	if(GetTotalMassOnVolume() > 12.0f){
+		UE_LOG(LogTemp, Warning, TEXT("OPEN") );	 
 		GetOwner()->SetActorRotation(FRotator(0.f, -DoorOpenAngle, 0.0f));
 	}else{
 		GetOwner()->SetActorRotation(FRotator(0.f, 0.0f, 0.0f));
@@ -40,12 +39,16 @@ float UOpenDoor::GetTotalMassOnVolume() const{
 	float TotalMass = 0.0f;
 	//TArray<UPrimitiveComponent*> Overlaps;
 	//TriggerVolume->GetOverlappingComponents(OUT Overlaps);
-	TArray<AActor*> Overlaps;
-	TriggerVolume->GetOverlappingActors(OUT Overlaps);
-	for( const auto* it : Overlaps){
-		TotalMass += it->FindComponentByClass<UPrimitiveComponent>()->GetMass();
-		UE_LOG(LogTemp, Warning, TEXT("%s TotalMass: %f"), *it->GetName(),  TotalMass);	
-	} 
+	if(TriggerVolume){
+		TArray<AActor*> Overlaps;
+		TriggerVolume->GetOverlappingActors(OUT Overlaps);
+		for( const auto* it : Overlaps){
+			TotalMass += it->FindComponentByClass<UPrimitiveComponent>()->GetMass();
+			UE_LOG(LogTemp, Warning, TEXT("%s TotalMass: %f"), *it->GetName(),  TotalMass);	
+		} 
+	}else{
+		UE_LOG(LogTemp, Warning, TEXT("No tigger") );	 
+	}
 	return TotalMass;
 }
 

@@ -21,7 +21,6 @@ void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
 	PysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
 	if(!PysicsHandle){
 		UE_LOG(LogTemp, Error, TEXT("Could not find PhysicsHandle") );	 
@@ -46,7 +45,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(PlayerLocation, PlayerRotation);
 	FVector GrabberVector = PlayerLocation + PlayerRotation.Vector() * 100.0f;
 	DrawDebugLine(GetWorld(), PlayerLocation, GrabberVector, FColor::Red, false, 0.0f, 0.0f, 5.0f);
-	if(PysicsHandle->GrabbedComponent){
+	if(PysicsHandle && PysicsHandle->GrabbedComponent){
 		//UE_LOG(LogTemp, Warning, TEXT("move: %s"), *GrabberVector.ToString()  );	
 		PysicsHandle->SetTargetLocation(GrabberVector);
 	}
@@ -54,7 +53,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 
 void UGrabber::Drop(){
 	UE_LOG(LogTemp, Error, TEXT("Drop") );	 
-	PysicsHandle->ReleaseComponent();
+	if(PysicsHandle)PysicsHandle->ReleaseComponent();
 }
 
 void UGrabber::Grab(){ 
@@ -71,7 +70,7 @@ void UGrabber::Grab(){
 	FCollisionQueryParams TraceParams(FName(TEXT("")), false, GetOwner());
 	GetWorld()->LineTraceSingleByObjectType(Hit, PlayerLocation, GrabberVector, FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), TraceParams);
 
-	if(Hit.GetActor()){
+	if(PysicsHandle && Hit.GetActor()){
 		UE_LOG(LogTemp, Error, TEXT("Found") );	 
 		//UE_LOG(LogTemp, Warning, TEXT("UGrabber Hit: %s"), *Hit.GetActor()->GetName() );
 		PysicsHandle->GrabComponentAtLocation(Hit.GetComponent(), NAME_None, Hit.GetActor()->GetActorLocation());

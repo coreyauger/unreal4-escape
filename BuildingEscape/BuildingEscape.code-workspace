@@ -8,6 +8,15 @@
 		}
 	],
 	"settings": {
-		"typescript.tsc.autoDetect": "off"
+		"typescript.tsc.autoDetect": "off",
+		"files.associations": {
+			"__bit_reference": "cpp",
+			"algorithm": "cpp",
+			"ios": "cpp",
+			"memory": "cpp",
+			"string": "cpp",
+			"type_traits": "cpp",
+			"__nullptr": "cpp"
+		}
 	}
 }
