@@ -13,7 +13,7 @@
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UOpenDoor : public UActorComponent
 {
-	GENERATED_BODY()
+	GENERATED_BODY() 
 
 public:	
 	// Sets default values for this component's properties
@@ -21,8 +21,8 @@ public:
 
 protected:
 	// Called when the game starts
-	virtual void BeginPlay() override;
-	virtual void OpenDoor() const;
+	virtual void BeginPlay() override;	
+	float GetTotalMassOnVolume() const;
 
 public:	
 	// Called every frame
@@ -30,7 +30,7 @@ public:
 
 		
 private:
-  AActor* TriggerActor;
+  //AActor* TriggerActor;
 
   UPROPERTY(VisibleAnywhere)
   float DoorOpenAngle = 90.0f;
