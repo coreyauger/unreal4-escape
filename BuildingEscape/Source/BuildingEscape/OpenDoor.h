@@ -10,6 +10,7 @@
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnOpenRequest);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCloseRequest);
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -21,8 +22,7 @@ public:
 	// Sets default values for this component's properties
 	UOpenDoor();
 	
-	
-
+ 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;	
@@ -34,12 +34,15 @@ public:
 	
 	UPROPERTY(BlueprintAssignable)
 	FOnOpenRequest OnOpenRequest;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnCloseRequest OnCloseRequest;
 		
 private:
   //AActor* TriggerActor;
  
   UPROPERTY(VisibleAnywhere)
-  float DoorOpenAngle = 0.0f;
+  float TriggerMass = 20.0f;
 
   UPROPERTY(EditAnywhere)
   ATriggerVolume* TriggerVolume = nullptr;
