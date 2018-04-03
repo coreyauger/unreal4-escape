@@ -27,8 +27,8 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if(GetTotalMassOnVolume() > 12.0f){
-		UE_LOG(LogTemp, Warning, TEXT("OPEN2") );	 
+	if(GetTotalMassOnVolume() > TriggerMass){
+		UE_LOG(LogTemp, Warning, TEXT("OPEN") );	 
 		//GetOwner()->SetActorRotation(FRotator(0.f, DoorOpenAngle, 0.0f));
 		OnOpenRequest.Broadcast();
 	}else{
