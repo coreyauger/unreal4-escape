@@ -37,9 +37,9 @@ public:
 		
 private:
   //AActor* TriggerActor;
-
+ 
   UPROPERTY(VisibleAnywhere)
-  float DoorOpenAngle = 90.0f;
+  float DoorOpenAngle = 0.0f;
 
   UPROPERTY(EditAnywhere)
   ATriggerVolume* TriggerVolume = nullptr;
