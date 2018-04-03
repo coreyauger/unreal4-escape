@@ -32,8 +32,8 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 		GetOwner()->SetActorRotation(FRotator(0.f, -DoorOpenAngle, 0.0f));
 		OnOpenRequest.Broadcast();
 	}else{
-		UE_LOG(LogTemp, Warning, TEXT("CLOSE") );	 
-		//GetOwner()->SetActorRotation(FRotator(0.f, 0.0f, 0.0f));
+		//UE_LOG(LogTemp, Warning, TEXT("CLOSE") );	 
+		GetOwner()->SetActorRotation(FRotator(0.f, 0.0f, 0.0f));
 	}	
 }
 
